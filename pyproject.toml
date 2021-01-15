@@ -1,13 +1,14 @@
 [tool.poetry]
 authors = ["Justine Kizhakkinedath <justine@kizhak.com>"]
 description = "Backend for tracking porfolios"
-name = "portfolio-tracker-python"
+name = "portfolio_tracker"
 version = "0.1.0"
 
 [tool.poetry.dependencies]
 casparser = "^0.4.1"
 fastapi = "^0.62.0"
 loguru = "^0.5.3"
+portray = "^1.4.0"
 python = "^3.8"
 python-dotenv = "^0.15.0"
 typer = "^0.3.2"
