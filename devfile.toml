@@ -1,0 +1,27 @@
+author = "Justine Kizhakkinedath <justine@kizhak.com>"
+description = "All the commands required for building and deploying the application"
+
+[[modules]]
+module_type = "group"
+name = "deploy"
+requires = ["build and run", "open browser"]
+
+[[modules]]
+commands = ["python -m webbrowser http://localhost"]
+description = "Open the browser with the url."
+module_type = "phony"
+name = "open browser"
+
+[[modules]]
+commands = ["docker build -t {image_name} .", "docker run -d --name {container_name} -p 80:80 {image_name}"]
+constants = [{key = "container_name", value = "portfolio_tracker_container"}, {key = "image_name", value = "portfolio_tracker_image"}]
+description = "Build and deploy the docker container with production settings.\n\nFor full documentation on the docker settings check the URL."
+module_type = "phony"
+name = "build and run"
+url = "https://github.com/tiangolo/uvicorn-gunicorn-docker"
+
+[[modules]]
+commands = ["python3 -m portfolio_tracker"]
+description = "Run the application in development mode"
+module_type = "phony"
+name = "dev"
